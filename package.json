@@ -1,11 +1,22 @@
 {
-  "name": "scrambled-eggs",
+  "name": "scrambler-util",
   "version": "0.1.0",
-  "description": "A fast and efficient Rubiks's Cube scramble generator that emulates random state. ",
-  "main": "scrambled-eggs.js",
+  "description": "An easy-to-use puzzle scramble generator.",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Bacon1153",
-  "license": "MIT"
+  "author": "echoboi",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecuber/scrambled-eggs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ecuber/scrambled-eggs/issues"
+  },
+  "homepage": "https://github.com/ecuber/scrambled-eggs#readme",
+  "dependencies": {
+    "scrambow": "^1.4.0"
+  }
 }
