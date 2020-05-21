@@ -6,8 +6,9 @@
 
 const scramble3 = require("../../util/scramble_333");
 const mathlib = require("../../util/mathlib");
+const orient = require("../../util/orient");
 
-module.exports.run = (amount) => {
+module.exports.run = (amount, cube, args) => {
     const scramble4 = (function(rn, Cnk, circle) {
         function createArray(length1, length2) {
             var result, i;
@@ -387,9 +388,9 @@ module.exports.run = (amount) => {
             }
         }
 
-        function getSolvedSym(cube) {
+        function getSolvedSym(cub) {
             var c, check, i_0, j;
-            c = new Center1_2(cube.ct);
+            c = new Center1_2(cub.ct);
             for (j = 0; j < 48; ++j) {
                 check = true;
                 for (i_0 = 0; i_0 < 24; ++i_0)
@@ -2430,5 +2431,7 @@ module.exports.run = (amount) => {
         };
     }(mathlib.rn, mathlib.Cnk, mathlib.circle));
 
+    if (args == "bld")
+        return scramble4.getRandomScramble(amount).map(s => `${s} ${orient("444")}`);
     return scramble4.getRandomScramble(amount);
 };

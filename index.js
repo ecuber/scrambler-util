@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { Scrambow } = require("scrambow");
 const scrambow = new Scrambow();
-const { alias } = require("./util/aliases");
+const alias = require("./util/aliases");
 let scrambles = {};
 
 (function loadFiles(dir = `${__dirname}/scrambles`) {
@@ -11,9 +11,9 @@ let scrambles = {};
     });
 }());
 
-function egg(cube, amount) {
+function egg(cube, amount, args = null) {
     if (!amount || isNaN(amount)) amount = 1;
-    return scrambles[alias(cube)].run(amount, scrambow);
+    return scrambles[alias(cube)].run(amount, scrambow, args);
 }
 
 module.exports = egg;

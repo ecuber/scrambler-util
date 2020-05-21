@@ -1,5 +1,7 @@
-module.exports.run = (amount) => {
-    let arr = [];
+const orient = require("../../util/orient");
+
+module.exports.run = (amount, cube, args) => {
+    let scrambles = [];
     for (let x = 0; x < amount; x++) {
         let wides = ["Rw", "Uw", "Lw", "Dw", "Fw", "Bw"];
         let nonWides = ["R", "U", "L", "D", "F", "B"];
@@ -14,8 +16,10 @@ module.exports.run = (amount) => {
                 i++;
             }
         }
-        arr.push(scramble.map(index => Math.random() < 0.5 ? index += "2" : index += "\'").join(" "));
+        scrambles.push(scramble.map(index => Math.random() < 0.5 ? index += "2" : index += "\'").join(" "));
     }
 
-    return arr;
+    if (args == "bld")
+        return scrambles.map(s => `${s} ${orient("555")}`);
+    return scrambles;
 };
