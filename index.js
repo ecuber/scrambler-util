@@ -13,7 +13,9 @@ let scrambles = {};
 
 function egg(cube, amount, args = null) {
     if (!amount || isNaN(amount)) amount = 1;
-    return scrambles[alias(cube)].run(amount, scrambow, args);
+    if (scrambles[alias(cube)])
+        return scrambles[alias(cube)].run(amount, scrambow, args);
+    throw new Error(`Unrecognized event: ${cube}`);
 }
 
 module.exports = egg;

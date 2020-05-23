@@ -1,6 +1,6 @@
 {
   "name": "scrambler-util",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "An easy-to-use puzzle scramble generator.",
   "main": "index.js",
   "scripts": {
