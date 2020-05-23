@@ -33,6 +33,6 @@ For a complete and updated events list, see `./util/aliases.json`
 |   skewb   | random state |                                              |
 |  pyraminx | random state |                                              |
 |  square-1 | random state |                                              |
-|   clock   | random moves |                                              |
+|   clock   | random state |                                              |
 | redi cube | random moves |                                              |
 |   2x2x3   | random moves |                                              |
