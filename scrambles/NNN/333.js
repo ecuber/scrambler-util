@@ -1,6 +1,10 @@
 const orient = require("../../util/orient");
 const getScrambles = (cube, amount) => cube.setType("333").get(amount).map(n => n.scramble_string.trim().replace(/ +(?= )/g, ""));
-
+const elementsStartWith = (array, value, ...indexes) => {
+    let found = false;
+    indexes.forEach(i => array[i].startsWith(value) ? found = true : "");
+    return found;
+};
 
 module.exports.run = (amount, cube, args) => {
     let scrambles = getScrambles(cube, amount);
@@ -10,7 +14,7 @@ module.exports.run = (amount, cube, args) => {
     case "fmc":
         scrambles = scrambles.map(s => {
             let arr = s.split(" ");
-            while (arr[0].startsWith("F") || arr[arr.length - 1].startsWith("R")) {
+            while (elementsStartWith(arr, "F", 0, 1) || elementsStartWith(arr, "R", arr.length - 1, arr.length - 2)) {
                 s = getScrambles(cube, 1)[0];
                 arr = s.split(" ");
             }
