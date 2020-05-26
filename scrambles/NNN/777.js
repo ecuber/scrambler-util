@@ -7,7 +7,7 @@ module.exports.run = (amount) => {
         let i = 0;
         while (scramble.length < 100) {
             let move = Math.random() > 0.3 ? nonWides[Math.floor(Math.random() * nonWides.length)] : wides[Math.floor(Math.random() * wides.length)];
-            if (i > 0 && (scramble[i - 1] === move)) {
+            if (i > 0 && (scramble[i - 1].charAt(0) === move)) {
                 continue;
             } else {
                 scramble.push(move);
