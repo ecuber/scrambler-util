@@ -4,18 +4,33 @@ This is the scramble generator module used in the popular scrambler Discord bot.
 
 # Installation and Usage
 
-scrambler-util requires [Node.js](https://nodejs.org/) v12+. It may be backwards compatible with older versions of Node but this has not been tested.
+scrambler-util requires [Node.js](https://nodejs.org/), and should be compatible on most versions but has only been extensively tested on v12+.
 
-To install:
+## Installation
 ```sh
 $ npm install -g scrambler-util
 ```
 
-To use:
+## Usage
+### Syntax
 ```js
-const scrambler = require('scrambler-util');
-const scrambleArr = scrambler("333", 5); // returns 5 3x3 scrambles in an array
-console.log(scrambleArr.join("\n"));
+const cube = require('scrambler-util');
+const arr = cube(type, count, args);
+```
+
+### Basic Example
+```js
+const cube = require('scrambler-util');
+const scrambleArr = cube('333', 5); // returns 5 skewb scrambles in an array
+console.log(scrambleArr.join('\n'));
+```
+
+### Additional Arguments
+```js
+const cube = require('scrambler-util');
+// Must pass a count argument when passing arguments
+const bld4 = cube('444', 1, 'bld');
+const fmc = cube('333', 3, 'fmc');
 ```
 
 For a complete and updated events list, see `./util/aliases.json`
@@ -30,6 +45,7 @@ For a complete and updated events list, see `./util/aliases.json`
 |    5x5    | random moves | 5x5+ tnoodle scrambles are also random moves |
 |    6x6    | random moves |                                              |
 |    7x7    | random moves |                                              |
+|    1x1    | random moves |                                              |
 |   skewb   | random state |                                              |
 |  pyraminx | random state |                                              |
 |  square-1 | random state |                                              |
