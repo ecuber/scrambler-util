@@ -7,7 +7,9 @@ module.exports.run = (amount) => {
         faces.forEach(face => {
             moves.nonWides.push({ wide: false, face: face });
             moves.wides.push({ wide: true, face: face });
-            moves.wides.push({ wide: true, face: face, layers: "3" });
+            if (!["L", "D", "B"].includes(face)) {
+                moves.wides.push({ wide: true, face: face, layers: "3" });
+            }
         });
         let scramble = [];
         let i = 0;
